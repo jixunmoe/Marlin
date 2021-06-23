@@ -345,7 +345,7 @@
     #define TOUCH_SCREEN_CALIBRATION
 #endif
 
-#if (ET_MODEL & ET_SERIES_5)
+#if (ET_MODEL & (ET_SERIES_5 | ET_MODEL_ET4_LABIST))
   #define XPT2046_X_CALIBRATION  17964
   #define XPT2046_Y_CALIBRATION -12161
   #define XPT2046_X_OFFSET         -31
@@ -357,4 +357,10 @@
   #define XPT2046_X_OFFSET         333
   #define XPT2046_Y_OFFSET         -17
   #define XPT2046_ORIENTATION TOUCH_PORTRAIT
+#endif
+
+// Labist ET4 hacks?
+#if (ET_MODEL & ET_MODEL_ET4_LABIST)
+    #define Z_MIN_PROBE_PIN PC3
+    #define NOZZLE_TO_PROBE_OFFSET { -25, -8, 0 }
 #endif

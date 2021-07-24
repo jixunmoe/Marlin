@@ -25,6 +25,17 @@ Use at your own risk.
 
 [Marlin-Labists-ET4]: https://github.com/Atanasovgoran/Marlin-Labists-ET4
 
+### Known issues
+
+Filament loading:
+
+* It sometimes decides to unload the filament before printing, not sure why...
+* If the filament got stuck at loading, go to configurations -> advanced -> "filament load size" and decrease to 310.
+  Its auto purge should fix the issue.
+    * Keep unload at 350
+* Currently test-printed a simple object using Cura 14.1
+   * Need to look for better slicing software/versions...
+
 ### Build notes (docs/Tutorial/build-es.md)
 
 * Install VSCode

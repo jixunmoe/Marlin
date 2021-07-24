@@ -92,7 +92,7 @@
  * Values: ET_LV_NONE, ET_LV_BLTOUCH, ET_LV_MOUNTED_PROBE, ET_LV_FILM_STRIP
  */
 
-//#define ET_LEVELLING              ET_LV_BLTOUCH
+#define ET_LEVELLING              ET_LV_MOUNTED_PROBE
 
 /**
  * Parameter: ET_Z_HOMING_DIR
@@ -128,7 +128,7 @@
  * Type: Optional 
  */
 
-//#define ET_CUSTOM_MACHINE_NAME     "Anet ET4 A4988 BLTOUCH" 
+#define ET_CUSTOM_MACHINE_NAME     "Labist ET4" 
 
 // ----------------------------------------------
 // 3. Basic Post-installation configuration steps
@@ -271,6 +271,3 @@ XPT2046_Y_OFFSET
 XPT2046_ORIENTATION
 
 */
-
-// My specific changes.
-#define LCD_LANGUAGE en

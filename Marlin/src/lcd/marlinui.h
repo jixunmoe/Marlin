@@ -236,7 +236,7 @@ public:
 
   #if BOTH(HAS_LCD_MENU, TOUCH_SCREEN_CALIBRATION)
     static void check_touch_calibration() {
-      if (touch_calibration.need_calibration()) currentScreen = touch_calibration_screen;
+      currentScreen = touch_calibration_screen;
     }
   #endif
 

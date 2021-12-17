@@ -27,8 +27,9 @@
 #define ET_MODEL_ET5                (1UL << 5)
 #define ET_MODEL_ET5X               (1UL << 6)
 #define ET_MODEL_ET5_PRO			(1UL << 7)
+#define ET_MODEL_ET4_LABIST			(1UL << 8)
 
-#define ET_SERIES_4          		(ET_MODEL_ET4 | ET_MODEL_ET4_PLUS | ET_MODEL_ET4X | ET_MODEL_ET4_PRO)
+#define ET_SERIES_4          		(ET_MODEL_ET4_LABIST | ET_MODEL_ET4 | ET_MODEL_ET4_PLUS | ET_MODEL_ET4X | ET_MODEL_ET4_PRO)
 #define ET_SERIES_5          		(ET_MODEL_ET5 | ET_MODEL_ET5X | ET_MODEL_ET5_PRO)
 
 #define ET_LV_NONE					(1UL << 1)

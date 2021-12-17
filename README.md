@@ -4,6 +4,72 @@
 This project is an effort to try to adapt the Anet ET4/ET5 motherboard and display for use with Marlin.
 Anyone can contribute to completing this project. Feedback is also welcome.
 
+## Labists knockoff ET4 support
+
+Some notes / hints:
+
+* Don't buy it if you are considering getting one.
+  * Manufacture seems to have run away with no support.
+    * last update at 2020 Sept, also when they did a sale.
+* Hard-mod required.
+  * Firmware not tested yet, because my flashing tool is yet to arrive.
+* Problems with factory firmware:
+  * auto leveling data not saved; clicking OK does some weird stuff;
+  * The filament loading UI is janky and confusing;
+  * No firmware updates.
+
+It *should* work. This repo contains changes ported from
+[Atanasovgoran/Marlin-Labists-ET4][Marlin-Labists-ET4].
+
+Use at your own risk.
+
+[Marlin-Labists-ET4]: https://github.com/Atanasovgoran/Marlin-Labists-ET4
+
+### Known issues
+
+Filament loading:
+
+* It sometimes decides to unload the filament before printing, not sure why...
+* If the filament got stuck at loading, go to configurations -> advanced -> "filament load size" and decrease to 310.
+  Its auto purge should fix the issue.
+    * Keep unload at 350
+* Currently test-printed a simple object using Cura 14.1
+   * Need to look for better slicing software/versions...
+
+### Build notes (docs/Tutorial/build-es.md)
+
+* Install VSCode
+* Install VSCode extension "PlatformIO IDE"
+* Restart VSCode after prompted so
+* Open current directory with "PlatformIO IDE"
+* Click the extension (ant icon), find ET4 (click and type to search)
+* Open it up, build. It should take less than 5 minutes to compile.
+* Output lives in `.pio/build/ET4/firmware.{bin/srec}`.
+
+Note: [openblt][openblt] is recommended (although not tested yet),
+      as one can simply upgrade by placing a file in sd card.
+      Default is set to enabled.
+
+[openblt]: https://github.com/davidtgbe/openblt/releases
+
+To revert this behaviour, apply the following patch:
+
+```patch
+diff --git a/ini/stm32f4.ini b/ini/stm32f4.ini
+index 4006ed7123..b8c2dd3061 100644
+--- a/ini/stm32f4.ini
++++ b/ini/stm32f4.ini
+@@ -143,7 +143,7 @@ lib_ignore = ESP32 BLE Arduino
+ 
+ # Uncomment next line to build for use with BootLoader.
+ # Offset depends on BL used.
+-board_build.offset  = 0x10000
++#board_build.offset  = 0x10000
+ 
+ # Uncomment next 2 lines to build for debug.
+ #build_type = debug
+```
+
 # Context
 
 As I don't have a blog, I would like to leave a personal opinion here related with this project experience. To whom it may concern.
